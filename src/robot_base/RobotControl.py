@@ -104,4 +104,3 @@ if __name__ == '__main__':
       char = ""
       
       pub.publish(speed)
- 
