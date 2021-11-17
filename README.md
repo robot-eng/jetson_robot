@@ -46,6 +46,7 @@ add file slam.launch
 </launch>
 ```
 run slam.launch and rviz add map
+
 Save map
 ```
 rosrun map_server map_saver -f /tmp/my_map
