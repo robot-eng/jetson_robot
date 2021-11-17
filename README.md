@@ -7,6 +7,7 @@
 - ydlidar X2
 - Jetson nano B01
 - BTS7960
+
 file ydlidar_ros ได้รับการเเก้ไขเเล้วให้เป็น X2 ถ้าจะใช้รุ่นอื่นต้องทำการเเก้ไขใหม่
 ## SLAM - ydlidar X2
 ```
