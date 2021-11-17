@@ -44,4 +44,4 @@ add file slam.launch
      <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
 </launch>
 ```
-rviz add map
+run slam.launch and rviz add map
