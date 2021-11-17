@@ -47,9 +47,9 @@ add file slam.launch
 ```
 run slam.launch and rviz add map
 
-Save map
+---> Save map
 ```
-rosrun map_server map_saver -f 'file'
+rosrun map_server map_saver -f 'file' or 'location file at save'
 ```
 <p align="center">
 <img src="img/slam.png">
