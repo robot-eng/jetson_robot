@@ -47,5 +47,5 @@ add file slam.launch
 run slam.launch and rviz add map
 
 <p align="center">
-<img src="img/slam.png" width="450" height="350">
+<img src="img/slam.png">
 </p>
