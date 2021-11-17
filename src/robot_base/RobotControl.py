@@ -4,8 +4,10 @@ from geometry_msgs.msg import Twist
 #import BTS7960 as #HBridge
 import rospy
 
-speedleft = 0
-speedright = 0
+speedleft_f = 0
+speedleft_b = 0
+speedright_f = 0
+speedright_b = 0
 print("w/s: forward/back")
 print("a/d: left/right")
 print("q: stoppt Motor")
@@ -16,8 +18,8 @@ def getch():
    return ch
 def printscreen():
    print("========== MotorSet ==========")
-   print ("Motor Speedleft:  ", speedleft)
-   print ("Motor Speedright: ", speedright)
+   print ("Motor Speedleft:  ", speedleft_f)
+   print ("Motor Speedright: ", speedright_f)
 
 if __name__ == '__main__':
    pub = rospy.Publisher('cmd_vel', Twist, queue_size=0)
@@ -30,76 +32,199 @@ if __name__ == '__main__':
       char = getch()
       if(char == "w"):
 
-         speedleft = speedleft + 0.1
-         speedright = speedright + 0.1
+         speedleft_f = speedleft_f + 0.1
+         speedleft_b = speedleft_b + 0.1
+         speedright_f = speedright_f + 0.1
+         speedright_b = speedright_b + 0.1
 
-         if speedleft > 1:
-            speedleft = 1
-         if speedright > 1:
-            speedright = 1
+         if speedleft_f > 1:
+            speedleft_f = 1
+         if speedleft_b > 1:
+            speedleft_b = 1
+         if speedright_f > 1:
+            speedright_f = 1
+         if speedright_b > 1:
+            speedright_b = 1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
          printscreen()
-         
+
+      if(char == "r"):
+
+         speedleft_f = speedleft_f + 0.01
+         speedleft_b = speedleft_b + 0.1
+         speedright_f = speedright_f + 0.1
+         speedright_b = speedright_b + 0.01
+
+         if speedleft_f >= 0.01:
+            speedleft_f = 0.01
+         if speedleft_b > 1:
+            speedleft_b = 1
+         if speedright_f > 1:
+            speedright_f = 1
+         if speedright_b >= 0.01:
+            speedright_b = 0.01
+
+      if(char == "f"):
+
+         speedleft_f = speedleft_f + 0.1
+         speedleft_b = speedleft_b + 0.01
+         speedright_f = speedright_f + 0.01
+         speedright_b = speedright_b + 0.1
+
+         if speedleft_f > 1:
+            speedleft_f = 1
+         if speedleft_b >= 0.01:
+            speedleft_b = 0.01
+         if speedright_f >= 0.01:
+            speedright_f = 0.01
+         if speedright_b > 1:
+            speedright_b = 1
+
+      if(char == "F"):
+
+         speedleft_f = speedleft_f - 0.1
+         speedleft_b = speedleft_b + 0.01
+         speedright_f = speedright_f + 0.01
+         speedright_b = speedright_b - 0.1
+
+         if speedleft_f < -1:
+            speedleft_f = -1
+         if speedleft_b >= 0.01:
+            speedleft_b = 0.01
+         if speedright_f >= 0.01:
+            speedright_f = 0.01
+         if speedright_b < -1:
+            speedright_b = -1
+
+      if(char == "R"):
+
+         speedleft_f = speedleft_f + 0.01
+         speedleft_b = speedleft_b - 0.1
+         speedright_f = speedright_f - 0.1
+         speedright_b = speedright_b + 0.01
+
+         if speedleft_f >= 0.01:
+            speedleft_f = 0.01
+         if speedleft_b < -1:
+            speedleft_b = -1
+         if speedright_f < -1:
+            speedright_f = -1
+         if speedright_b >= 0.01:
+            speedright_b = 0.01
+
       if(char == "s"):
 
-         speedleft = speedleft - 0.1
-         speedright = speedright - 0.1
+         speedleft_f = speedleft_f - 0.1
+         speedleft_b = speedleft_b - 0.1
+         speedright_f = speedright_f - 0.1
+         speedright_b = speedright_b - 0.1
 
-         if speedleft < -1:
-            speedleft = -1
-         if speedright < -1:
-            speedright = -1
-      
-         ##HBridge.setMotorLeft(speedleft)
-         ##HBridge.setMotorRight(speedright)
-         printscreen()
+         if speedleft_f < -1:
+            speedleft_f = -1
+         if speedleft_b < -1:
+            speedleft_b = -1
+         if speedright_f < -1:
+            speedright_f = -1
+         if speedright_b < -1:
+            speedright_b = -1
 
       if(char == "q"):
-         speedleft = 0
-         speedright = 0
-         ##HBridge.setMotorLeft(0)
-         ##HBridge.setMotorRight(0)
-         printscreen()
 
-      if(char == "d"):      
-         speedright = speedright - 0.1
-         speedleft = speedleft + 0.1
-      
-         if speedright < -1:
-            speedright = -1
-      
-         if speedleft > 1:
-            speedleft = 1
-      
+         speedleft_f = speedleft_f + 0.1
+         speedleft_b = speedleft_b - 0.1
+         speedright_f = speedright_f + 0.1
+         speedright_b = speedright_b - 0.1
+
+         if speedleft_f > 1:
+            speedleft_f = 1
+         if speedleft_b < -1:
+            speedleft_b = -1
+         if speedright_f > 1:
+            speedright_f = 1
+         if speedright_b < -1:
+            speedright_b = -1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
-         printscreen()
+            printscreen()
+
+      if(char == "e"):
+
+         speedleft_f = speedleft_f - 0.1
+         speedleft_b = speedleft_b + 0.1
+         speedright_f = speedright_f - 0.1
+         speedright_b = speedright_b + 0.1
+
+         if speedleft_f < -1:
+            speedleft_f = -1
+         if speedleft_b > 1:
+            speedleft_b = 1
+         if speedright_f < -1:
+            speedright_f = -1
+         if speedright_b > 1:
+            speedright_b = 1
+         ##HBridge.setMotorLeft(speedleft)
+         ##HBridge.setMotorRight(speedright)
+            printscreen()
+
+      if(char == "d"):
+
+         speedleft_f = speedleft_f - 0.1
+         speedleft_b = speedleft_b - 0.1
+         speedright_f = speedright_f + 0.1
+         speedright_b = speedright_b + 0.1
+
+         if speedleft_f < -1:
+            speedleft_f = -1
+         if speedleft_b < -1:
+            speedleft_b = -1
+         if speedright_f > 1:
+            speedright_f = 1
+         if speedright_b > 1:
+            speedright_b = 1
+         ##HBridge.setMotorLeft(speedleft)
+         ##HBridge.setMotorRight(speedright)
+            printscreen()
 
       if(char == "a"):
-         speedleft = speedleft - 0.1
-         speedright = speedright + 0.1
-         
-         if speedleft < -1:
-            speedleft = -1
-      
-         if speedright > 1:
-            speedright = 1
-      
-         #HBridge.setMotorLeft(speedleft)
-         #HBridge.setMotorRight(speedright)
-      
-         printscreen()
 
-      if(char == "x"):
-         speedleft = 0
-         speedright = 0
+         speedleft_f = speedleft_f + 0.1
+         speedleft_b = speedleft_b + 0.1
+         speedright_f = speedright_f - 0.1
+         speedright_b = speedright_b - 0.1
+
+         if speedleft_f > 1:
+            speedleft_f = 1
+         if speedleft_b > 1:
+            speedleft_b = 1
+         if speedright_f < -1:
+            speedright_f = -1
+         if speedright_b < -1:
+            speedright_b = -1
+         ##HBridge.setMotorLeft(speedleft)
+         ##HBridge.setMotorRight(speedright)
+            printscreen()
+
+      if(char == "z" or char == "Z"):
+         speedleft_f = 0
+         speedleft_b = 0
+         speedright_f = 0
+         speedright_b = 0
+         
+
+      if(char == "x" or char == "X"):
+         speedleft_f = 0
+         speedleft_b = 0
+         speedright_f = 0
+         speedright_b = 0
          print ("Program Ended motorset 0")
          rospy.loginfo_once("ctrl+c exit")
          break
 
-      speed.linear.x = speedleft
-      speed.linear.y = speedright
+      speed.linear.x = speedleft_f
+      speed.linear.y = speedleft_b
+      speed.linear.z = speedright_f
+      speed.angular.x = speedright_b
  
       char = ""
       
