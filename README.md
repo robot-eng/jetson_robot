@@ -4,4 +4,4 @@
 ```
 ./catkinmake.sh
 ```
-ydlidar X2
+- ydlidar X2
