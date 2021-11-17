@@ -10,8 +10,11 @@ speedright_f = 0
 speedright_b = 0
 print("w/s: forward/back")
 print("a/d: left/right")
-print("q: stoppt Motor")
-print("x: Programm end")
+print("q/e: <---- left/right ---->")
+print("r/R: (/)forward , (/)back")
+print("f/F: (\)forward , (\)back")
+print("z/Z : stoppt Motor")
+print("x/X : Programm end")
 
 def getch():
    ch = readchar.readchar()
@@ -19,7 +22,9 @@ def getch():
 def printscreen():
    print("========== MotorSet ==========")
    print ("Motor Speedleft:  ", speedleft_f)
-   print ("Motor Speedright: ", speedright_f)
+   print ("Motor Speedright: ", speedleft_b)
+   print ("Motor Speedleft:  ", speedright_f)
+   print ("Motor Speedright: ", speedright_b)
 
 if __name__ == '__main__':
    pub = rospy.Publisher('cmd_vel', Twist, queue_size=0)
@@ -64,6 +69,8 @@ if __name__ == '__main__':
             speedright_f = 1
          if speedright_b >= 0.01:
             speedright_b = 0.01
+            
+         printscreen()
 
       if(char == "f"):
 
@@ -80,6 +87,8 @@ if __name__ == '__main__':
             speedright_f = 0.01
          if speedright_b > 1:
             speedright_b = 1
+            
+         printscreen()
 
       if(char == "F"):
 
@@ -96,6 +105,8 @@ if __name__ == '__main__':
             speedright_f = 0.01
          if speedright_b < -1:
             speedright_b = -1
+            
+         printscreen()            
 
       if(char == "R"):
 
@@ -112,6 +123,8 @@ if __name__ == '__main__':
             speedright_f = -1
          if speedright_b >= 0.01:
             speedright_b = 0.01
+            
+         printscreen()            
 
       if(char == "s"):
 
@@ -128,6 +141,8 @@ if __name__ == '__main__':
             speedright_f = -1
          if speedright_b < -1:
             speedright_b = -1
+            
+         printscreen()            
 
       if(char == "q"):
 
@@ -146,7 +161,7 @@ if __name__ == '__main__':
             speedright_b = -1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
-            printscreen()
+         printscreen()
 
       if(char == "e"):
 
@@ -165,7 +180,7 @@ if __name__ == '__main__':
             speedright_b = 1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
-            printscreen()
+         printscreen()
 
       if(char == "d"):
 
@@ -184,7 +199,7 @@ if __name__ == '__main__':
             speedright_b = 1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
-            printscreen()
+         printscreen()
 
       if(char == "a"):
 
@@ -203,13 +218,16 @@ if __name__ == '__main__':
             speedright_b = -1
          ##HBridge.setMotorLeft(speedleft)
          ##HBridge.setMotorRight(speedright)
-            printscreen()
+         printscreen()
 
       if(char == "z" or char == "Z"):
          speedleft_f = 0
          speedleft_b = 0
          speedright_f = 0
          speedright_b = 0
+         
+         ##HBridge.setMotorRight(speedright)
+         printscreen()         
          
 
       if(char == "x" or char == "X"):
