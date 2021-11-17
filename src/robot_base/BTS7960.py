@@ -40,36 +40,44 @@ io.output(rightmotor_int3_pin, True)
 io.output(rightmotor_int4_pin, True)
 
 def setMotorMode(motor, mode):
-   if motor == "leftmotor":
+   if motor == "leftmotor_f":
       if mode == "reverse":
          io.output(leftmotor_int1_pin, True)
          io.output(leftmotor_int2_pin, False)
-         io.output(leftmotor_int3_pin, True)
-         io.output(leftmotor_int4_pin, False)
       elif  mode == "forward":
          io.output(leftmotor_int1_pin, False)
          io.output(leftmotor_int2_pin, True)
-         io.output(leftmotor_int3_pin, False)
-         io.output(leftmotor_int4_pin, True)
       else:
          io.output(leftmotor_int1_pin, False)
          io.output(leftmotor_int2_pin, False)
+   if motor == "leftmotor_b":
+      if mode == "reverse":
+         io.output(leftmotor_int3_pin, True)
+         io.output(leftmotor_int4_pin, False)
+      elif  mode == "forward":
+         io.output(leftmotor_int3_pin, False)
+         io.output(leftmotor_int4_pin, True)
+      else:
          io.output(leftmotor_int3_pin, False)
          io.output(leftmotor_int4_pin, False)
-   elif motor == "rightmotor":
+   elif motor == "rightmotor_f":
       if mode == "reverse":
          io.output(rightmotor_int1_pin, False)
-         io.output(rightmotor_int2_pin, True)
-         io.output(rightmotor_int3_pin, False)
-         io.output(rightmotor_int4_pin, True)     
+         io.output(rightmotor_int2_pin, True)    
       elif  mode == "forward":
          io.output(rightmotor_int1_pin, True)
          io.output(rightmotor_int2_pin, False)
-         io.output(rightmotor_int3_pin, True)
-         io.output(rightmotor_int4_pin, False)
       else:
          io.output(rightmotor_int1_pin, False)
          io.output(rightmotor_int2_pin, False)
+   elif motor == "rightmotor_b":
+      if mode == "reverse":
+         io.output(rightmotor_int3_pin, False)
+         io.output(rightmotor_int4_pin, True)    
+      elif  mode == "forward":
+         io.output(rightmotor_int3_pin, True)
+         io.output(rightmotor_int4_pin, False)
+      else:
          io.output(rightmotor_int3_pin, False)
          io.output(rightmotor_int4_pin, False)
    else:
@@ -82,22 +90,42 @@ def setMotorMode(motor, mode):
       io.output(rightmotor_int3_pin, False)
       io.output(rightmotor_int4_pin, False)
 
-def setMotorLeft(power):
+def setMotorLeft_f(power):
    int(power)
    if power < 0:
       pwm = -int(duty_cycle * power)
       if pwm > duty_cycle:
          pwm = duty_cycle
       PCA9685_pwm.set_pwm(0, 0, pwm)
-      PCA9685_pwm.set_pwm(1, 0, 0)
+      PCA9685_pwm.set_pwm(1, 0, 0)   
+   elif power > 0:
+      pwm = int(duty_cycle * power)
+      if pwm > duty_cycle:
+         pwm = duty_cycle
+      PCA9685_pwm.set_pwm(0, 0, 0)
+      PCA9685_pwm.set_pwm(1, 0, pwm) 	  
+   else:
+      PCA9685_pwm.set_pwm(0, 0, 0)
+      PCA9685_pwm.set_pwm(1, 0, 0)  
+      PCA9685_pwm.set_pwm(2, 0, 0)
+      PCA9685_pwm.set_pwm(3, 0, 0)
+      PCA9685_pwm.set_pwm(4, 0, 0)
+      PCA9685_pwm.set_pwm(5, 0, 0)
+      PCA9685_pwm.set_pwm(6, 0, 0)
+      PCA9685_pwm.set_pwm(7, 0, 0)
+
+def setMotorLeft_b(power):
+   int(power)
+   if power < 0:
+      pwm = -int(duty_cycle * power)
+      if pwm > duty_cycle:
+         pwm = duty_cycle
       PCA9685_pwm.set_pwm(4, 0, pwm)
       PCA9685_pwm.set_pwm(5, 0, 0)    
    elif power > 0:
       pwm = int(duty_cycle * power)
       if pwm > duty_cycle:
          pwm = duty_cycle
-      PCA9685_pwm.set_pwm(0, 0, 0)
-      PCA9685_pwm.set_pwm(1, 0, pwm)
       PCA9685_pwm.set_pwm(4, 0, 0)
       PCA9685_pwm.set_pwm(5, 0, pwm)  	  
    else:
@@ -110,22 +138,43 @@ def setMotorLeft(power):
       PCA9685_pwm.set_pwm(6, 0, 0)
       PCA9685_pwm.set_pwm(7, 0, 0)	
 
-def setMotorRight(power):
+def setMotorRight_f(power):
    int(power)
    if power < 0:
       pwm = -int(duty_cycle * power)
       if pwm > duty_cycle:
          pwm = duty_cycle
       PCA9685_pwm.set_pwm(2, 0, pwm)
-      PCA9685_pwm.set_pwm(3, 0, 0)
-      PCA9685_pwm.set_pwm(6, 0, pwm)
-      PCA9685_pwm.set_pwm(7, 0, 0)   	  
+      PCA9685_pwm.set_pwm(3, 0, 0)   	  
    elif power > 0:
       pwm = int(duty_cycle * power)
       if pwm > duty_cycle:
          pwm = duty_cycle
       PCA9685_pwm.set_pwm(2, 0, 0)
       PCA9685_pwm.set_pwm(3, 0, pwm)
+  
+   else:
+      PCA9685_pwm.set_pwm(0, 0, 0)
+      PCA9685_pwm.set_pwm(1, 0, 0)  
+      PCA9685_pwm.set_pwm(2, 0, 0)
+      PCA9685_pwm.set_pwm(3, 0, 0)
+      PCA9685_pwm.set_pwm(4, 0, 0)
+      PCA9685_pwm.set_pwm(5, 0, 0)
+      PCA9685_pwm.set_pwm(6, 0, 0)
+      PCA9685_pwm.set_pwm(7, 0, 0)
+
+def setMotorRight_b(power):
+   int(power)
+   if power < 0:
+      pwm = -int(duty_cycle * power)
+      if pwm > duty_cycle:
+         pwm = duty_cycle
+      PCA9685_pwm.set_pwm(6, 0, pwm)
+      PCA9685_pwm.set_pwm(7, 0, 0)   	  
+   elif power > 0:
+      pwm = int(duty_cycle * power)
+      if pwm > duty_cycle:
+         pwm = duty_cycle
       PCA9685_pwm.set_pwm(6, 0, 0)
       PCA9685_pwm.set_pwm(7, 0, pwm)  	  
    else:
@@ -159,8 +208,10 @@ def exit():
 
 
 def setMotor(msg):
-   setMotorLeft(msg.linear.x)
-   setMotorRight(msg.linear.y)
+   setMotorLeft_f(msg.linear.x)
+   setMotorLeft_b(msg.linear.y)
+   setMotorRight_f(msg.linear.z)
+   setMotorRight_b(msg.angular.x)
    rospy.loginfo(msg.linear.x)
    rospy.loginfo(msg.linear.y)
 
@@ -171,4 +222,3 @@ if __name__ == '__main__':
    #rospy.Subscriber('cmd_vel', String, queue_size=10)
    rospy.Subscriber('cmd_vel', Twist, setMotor)
    rospy.spin()
-
