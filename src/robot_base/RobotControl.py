@@ -35,7 +35,7 @@ if __name__ == '__main__':
    while not rospy.is_shutdown():
 
       char = getch()
-      if(char == "w"):
+      if(char == "w" or char == "W"):
 
          speedleft_f = speedleft_f + 0.1
          speedleft_b = speedleft_b + 0.1
@@ -126,7 +126,7 @@ if __name__ == '__main__':
             
          printscreen()            
 
-      if(char == "s"):
+      if(char == "s" or char == "S"):
 
          speedleft_f = speedleft_f - 0.1
          speedleft_b = speedleft_b - 0.1
@@ -144,7 +144,7 @@ if __name__ == '__main__':
             
          printscreen()            
 
-      if(char == "q"):
+      if(char == "q" or char == "Q"):
 
          speedleft_f = speedleft_f + 0.1
          speedleft_b = speedleft_b - 0.1
@@ -163,7 +163,7 @@ if __name__ == '__main__':
          ##HBridge.setMotorRight(speedright)
          printscreen()
 
-      if(char == "e"):
+      if(char == "e" or char == "E"):
 
          speedleft_f = speedleft_f - 0.1
          speedleft_b = speedleft_b + 0.1
@@ -182,7 +182,7 @@ if __name__ == '__main__':
          ##HBridge.setMotorRight(speedright)
          printscreen()
 
-      if(char == "d"):
+      if(char == "d" or char == "D"):
 
          speedleft_f = speedleft_f - 0.1
          speedleft_b = speedleft_b - 0.1
@@ -201,7 +201,7 @@ if __name__ == '__main__':
          ##HBridge.setMotorRight(speedright)
          printscreen()
 
-      if(char == "a"):
+      if(char == "a" or char == "A"):
 
          speedleft_f = speedleft_f + 0.1
          speedleft_b = speedleft_b + 0.1
