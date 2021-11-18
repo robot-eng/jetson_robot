@@ -1,4 +1,4 @@
 <launch>
     <include file="$(find jetson_camera)/launch/jetson_camera.launch" />
-    <node name="motors" pkg="robot_base" output="screen" type="BTS.py" />
+    <node name="motors" pkg="robot_base" output="screen" type="BTS7960.py" />
 </launch>
