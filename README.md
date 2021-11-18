@@ -32,17 +32,16 @@ add file slam.launch
     <param name="isTOFLidar"    type="bool"   value="false"/>
     <param name="isSingleChannel"    type="bool"   value="true"/>
   </node>
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
-    args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
-     <node pkg ="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /nav 40"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4" args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
+  <node pkg ="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /nav 40"/>
 
-     <node pkg ="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /nav /base_footprint 40"/>
+  <node pkg ="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /nav /base_footprint 40"/>
 
-     <include file="$(find hector_mapping)/launch/mapping_default.launch" />
+  <include file="$(find hector_mapping)/launch/mapping_default.launch" />
 
-     <node pkg="rviz" name="rviz" type="rviz" args="-d $(find ydlidar_ros)/launch/lidar.rviz" />
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find ydlidar_ros)/launch/lidar.rviz" />
 
-     <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
+  <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
 </launch>
 ```
 Jetson nano send data to pc
@@ -66,25 +65,24 @@ jetson nano
     <param name="isTOFLidar"    type="bool"   value="false"/>
     <param name="isSingleChannel"    type="bool"   value="true"/>
   </node>
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
-    args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
-     <node pkg ="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /nav 40"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4" args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
+  <node pkg ="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /map /nav 40"/>
 
-     <node pkg ="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /nav /base_footprint 40"/>
+  <node pkg ="tf" type="static_transform_publisher" name="odom_to_base_link" args="0.0 0.0 0.0 0.0 0.0 0.0 /nav /base_footprint 40"/>
 
-     <include file="$(find hector_mapping)/launch/mapping_default.launch" />
+  <include file="$(find hector_mapping)/launch/mapping_default.launch" />
 
-     <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
+  <include file="$(find hector_geotiff)/launch/geotiff_mapper.launch" />
 </launch>
 ```
 pc
 ```
 <launch>
-
      <node pkg="rviz" name="rviz" type="rviz" args="-d $(find ydlidar_ros)/launch/lidar.rviz" />
+</launch>
+```
      
 run slam.launch and rviz add map
-```
 
 ---> Save map
 ```
