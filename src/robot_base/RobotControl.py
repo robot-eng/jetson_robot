@@ -8,9 +8,9 @@ speedleft_f = 0
 speedleft_b = 0
 speedright_f = 0
 speedright_b = 0
-print("w/s: forward/back")
-print("a/d: left/right")
-print("q/e: <---- left/right ---->")
+print("(w,W)/(s,S): forward/back")
+print("(a,A)/(d,D): left/right")
+print("(q,Q)/(e,E): <---- left/right ---->")
 print("r/R: (/)forward , (/)back")
 print("f/F: (\)forward , (\)back")
 print("z/Z : stoppt Motor")
