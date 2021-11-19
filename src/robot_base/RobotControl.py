@@ -146,15 +146,15 @@ if __name__ == '__main__':
 
       if(char == "q" or char == "Q"):
 
-         speedleft_f = speedleft_f + 0.1
-         speedleft_b = speedleft_b - 0.1
+         speedleft_f = speedleft_f - 0.1
+         speedleft_b = speedleft_b + 0.1
          speedright_f = speedright_f + 0.1
          speedright_b = speedright_b - 0.1
 
-         if speedleft_f > 1:
-            speedleft_f = 1
-         if speedleft_b < -1:
-            speedleft_b = -1
+         if speedleft_f < -1:
+            speedleft_f = -1
+         if speedleft_b > 1:
+            speedleft_b = 1
          if speedright_f > 1:
             speedright_f = 1
          if speedright_b < -1:
@@ -165,15 +165,15 @@ if __name__ == '__main__':
 
       if(char == "e" or char == "E"):
 
-         speedleft_f = speedleft_f - 0.1
-         speedleft_b = speedleft_b + 0.1
+         speedleft_f = speedleft_f + 0.1
+         speedleft_b = speedleft_b - 0.1
          speedright_f = speedright_f - 0.1
          speedright_b = speedright_b + 0.1
 
-         if speedleft_f < -1:
-            speedleft_f = -1
-         if speedleft_b > 1:
-            speedleft_b = 1
+         if speedleft_f > 1:
+            speedleft_f = 1
+         if speedleft_b < -1:
+            speedleft_b = -1
          if speedright_f < -1:
             speedright_f = -1
          if speedright_b > 1:
