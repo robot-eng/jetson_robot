@@ -1,6 +1,6 @@
 <launch>
     <include file="$(find jetson_camera)/launch/jetson_camera.launch" />
-    <node name="motors" pkg="robot_base" output="screen" type="BTS.py" />
+    <node name="motors" pkg="robot_base" output="screen" type="BTS7960.py" />
   <node name="ydlidar_node"  pkg="ydlidar_ros"  type="ydlidar_node" output="screen" respawn="false" >
     <param name="port"         type="string" value="/dev/ttyUSB0"/>  
     <param name="baudrate"         type="int" value="115200"/>  
