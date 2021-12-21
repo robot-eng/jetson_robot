@@ -22,7 +22,7 @@ io.setup(leftmotor_int3_pin, io.OUT)
 io.setup(leftmotor_int4_pin, io.OUT)
 #setmotorright
 rightmotor_int1_pin = 23
-rightmotor_int2_pin = 19
+rightmotor_int2_pin = 24
 rightmotor_int3_pin = 15
 rightmotor_int4_pin = 16
 io.setup(rightmotor_int1_pin, io.OUT)
