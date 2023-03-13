@@ -92,4 +92,6 @@ rosrun map_server map_saver -f 'file' or 'location file at save'
 <img src="img/slam.png">
 </p>
 
-<video src="https://youtu.be/G1Llabx97wU"></video>
+https://user-images.githubusercontent.com/79349006/224717468-dbd86c62-3531-442a-96cb-270d92e609e7.mp4
+
+
