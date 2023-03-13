@@ -92,4 +92,4 @@ rosrun map_server map_saver -f 'file' or 'location file at save'
 <img src="img/slam.png">
 </p>
 
-[![Little red riding hood](http://i.imgur.com/7YTMFQp.png)](https://studio.youtube.com/video/G1Llabx97wU/edit)
+<video src="https://youtu.be/G1Llabx97wU"></video>
